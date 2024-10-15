@@ -18,21 +18,18 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    // Create a new User
     @PostMapping
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User savedUser = userRepository.save(user);
         return ResponseEntity.ok(savedUser);
     }
 
-    // Get all Users
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userRepository.findAll();
         return ResponseEntity.ok(users);
     }
 
-    // Get User by ID
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         Optional<User> userOpt = userRepository.findById(id);
@@ -40,7 +37,6 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Update User
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable String id, @Valid @RequestBody User userDetails) {
         Optional<User> userOpt = userRepository.findById(id);
@@ -59,7 +55,6 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
-    // Delete User
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable String id) {
         try {
