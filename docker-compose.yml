@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: userdb
+      # Uncomment and set these if you want to enable authentication
+      # MONGO_INITDB_ROOT_USERNAME: admin
+      # MONGO_INITDB_ROOT_PASSWORD: adminpassword
+    volumes:
+      - mongo-data:/data/db
+
+  user-service:
+    build: .
+    container_name: user-service
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongodb
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: userdb
+      # SPRING_DATA_MONGODB_USERNAME: admin  # Uncomment if using authentication
+      # SPRING_DATA_MONGODB_PASSWORD: adminpassword  # Uncomment if using authentication
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      # Uncomment and set these if using MongoDB authentication
+      # ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      # ME_CONFIG_MONGODB_ADMINPASSWORD: adminpassword
+      ME_CONFIG_MONGODB_URL: "mongodb://mongodb:27017/userdb"
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo-data:
