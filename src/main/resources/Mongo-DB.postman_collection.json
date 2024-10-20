@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "341f2127-cfc1-4525-9aee-e09b0bda9f0d",
+		"_postman_id": "41667625-e0e5-4b07-b8a6-9da7d230209a",
 		"name": "Mongo-DB",
 		"description": "Collection of CRUD APIs for the User Service.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Create User",
+			"name": "Create User - 1",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -21,6 +21,66 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"age\": 30,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"salary\": 75000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User - 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 46,\n    \"firstName\": \"Yossi\",\n    \"lastName\": \"Tal\",\n    \"salary\": 99000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User - 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 50,\n    \"firstName\": \"Ayala\",\n    \"lastName\": \"Cohen\",\n    \"salary\": 200000\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/api/users",
