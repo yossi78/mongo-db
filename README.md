@@ -1,5 +1,4 @@
 
-
  DOCKER CONTAINER
 ----------------------------------------------------------------------------------
 #) Open terminal in the root of the project and run as follow:
