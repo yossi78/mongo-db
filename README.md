@@ -25,3 +25,12 @@ http://localhost:8081
 userName = admin
 Password = adminpassword
 
+
+
+
+OPEN UI IN BROWSER
+-------------------------------------------------------------------------------------------------------------
+#) Open the browser in the following url:
+http://localhost:8080/
+
+

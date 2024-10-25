@@ -4,6 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 @Document(collection = "users")
+
 public class User {
     @Id
     private String id; // MongoDB uses String IDs
@@ -27,7 +28,14 @@ public class User {
         this.creationTime = LocalDateTime.now();
     }
 
-    // Getters and Setters
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setCreationTime(LocalDateTime creationTime) {
+        this.creationTime = creationTime;
+    }
+// Getters and Setters
 
     public String getId() {
         return id;
